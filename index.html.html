@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Nishu 💖</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #e4d6ff);
+    }
+
+    .card {
+      width: 90%;
+      max-width: 380px;
+      padding: 30px 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.9);
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: #ff4081;
+    }
+
+    .gift {
+      font-size: 100px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .gift:hover {
+      transform: scale(1.15);
+    }
+
+    #surprise {
+      display: none;
+      animation: pop .7s ease;
+    }
+
+    #surprise h2 {
+      color: #ff4081;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 25px;
+      background: #ff4081;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: fixed;
+      top: -30px;
+      font-size: 25px;
+      animation: fall 4s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎁 For Nishu 🎁</h1>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <p>Tap the gift 💖</p>
+
+    <div id="surprise">
+      <h2>💖 Dear Nishu 💖</h2>
+
+      <p>
+        This little surprise is just for you. 🌸<br><br>
+        Keep smiling and stay happy always! 😊✨
+      </p>
+
+      <h3>You're a very special person to me 💕</h3>
+
+      <button onclick="playMusic()">🎵 Play Aarzu</button>
+    </div>
+  </div>
+
+  <audio id="music" loop>
+    <source src="Aarzu.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openGift() {
+      document.getElementById("surprise").style.display = "block";
+
+      for (let i = 0; i < 35; i++) {
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration =
+          (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+
+    function playMusic() {
+      document.getElementById("music").play();
+    }
+  </script>
+
+</body>
+</html>
